@@ -9,6 +9,9 @@ In their release paper, the HPRC describe a workflow for aligning srGS to their 
 ## Workflows
 The HPRC has deposited WDL workflows on Zenodo for their [Giraffe-DeepVariant pipeline](https://doi.org/10.5281/zenodo.6655968) and [Giraffe-DeepTrio pipeline](https://zenodo.org/records/6655962). The suitability of these workflows for pangenome based short-read variant calling in unsolved rare disease samples will be explored as part of this project.
 
+[Pangenie workflows](https://bitbucket.org/jana_ebler/hprc-experiments/src/master/genotyping-experiments/)
+[Pangenie resources](https://zenodo.org/records/6797328)
+
 ## Cohort Variant Calls
 The HPRC has also provided combined VCFs and allele frequencies from 2,504 unrelated srGS samples of the 1KG, which they generate using their [Giraffe-DeepVariant pipeline](https://s3-us-west-2.amazonaws.com/human-pangenomics/index.html?prefix=publications/PANGENOME_2022/DeepVariant-1000GPcalls/). This will serve as a useful resource for variant frequency annotation and filtering.
 
