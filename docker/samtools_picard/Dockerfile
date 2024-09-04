@@ -41,7 +41,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
     conda config --set ssl_verify false && \
     conda config --add channels bioconda && \
     conda config --add channels r && \
-    conda install samtools=1.3 && \
+    conda install python=3.8 zlib=1.2.11 samtools=1.3 htslib=1.10 && \
     conda upgrade conda
 
 # Set environment variables for Conda and PATH
@@ -49,7 +49,7 @@ ENV HOME=/home/biodocker
 ENV PATH=/opt/conda/bin:$PATH
 
 # Create directories for data and config
-RUN mkdir /data /config
+RUN mkdir -p /data /config
 
 # Set permissions and create user biodocker
 RUN groupadd fuse && \
@@ -57,11 +57,9 @@ RUN groupadd fuse && \
     chown biodocker:biodocker /data /config && \
     chmod 777 -R /opt/conda/
 
-# Switch to user biodocker
-USER biodocker
-
 # Add tini for better container management
-RUN TINI_VERSION=$(curl -s https://github.com/krallin/tini/releases/latest | grep -oP "/v.*\"" | sed 's:^..\(.*\).$:\1:') && \
+USER root
+RUN TINI_VERSION=$(curl -s https://api.github.com/repos/krallin/tini/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/') && \
     wget https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini_${TINI_VERSION}.deb && \
     dpkg -i tini_${TINI_VERSION}.deb && rm tini_${TINI_VERSION}.deb
 
