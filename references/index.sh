@@ -1,4 +1,5 @@
 #Run this script to preprepare the index and dict files
+#hprc-v1.0-mc-grch38_extracted-ref.fa is sourced from task extractReference, but can be sourced by running vg paths
 
 #!/bin/bash
 
