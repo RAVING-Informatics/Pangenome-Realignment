@@ -15,6 +15,8 @@ The HPRC has deposited WDL workflows on Zenodo for their [Giraffe-DeepVariant pi
 
 Workflows for Pangenie-based genotyping using HPRC pangenome graphs are available on [GitHub](https://github.com/eblerjana/pangenie) and [BitBucket](https://bitbucket.org/jana_ebler/hprc-experiments/src/master/genotyping-experiments/).
 
+There is also a snakemake workflwo available [here](https://github.com/vgteam/vg_snakemake)
+
 ## Cohort Variant Calls
 The HPRC has also provided combined VCFs and allele frequencies from 2,504 unrelated srGS samples of the 1KG, which they generate using their [Giraffe-DeepVariant pipeline](https://s3-us-west-2.amazonaws.com/human-pangenomics/index.html?prefix=publications/PANGENOME_2022/DeepVariant-1000GPcalls/). This will serve as a useful resource for variant frequency annotation and filtering.
 
