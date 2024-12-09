@@ -1,3 +1,19 @@
+#!/bin/bash -l
+
+#SBATCH --job-name=run_vg
+#SBATCH --account=pawsey0933
+#SBATCH --partition=work
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=8G
+#SBATCH --nodes=1
+#SBATCH --time=24:00:00
+#SBATCH --mail-user=chiara.folland@perkins.org.au
+#SBATCH --mail-type=END
+#SBATCH --error=%j.%x.err
+#SBATCH --output=%j.%x.out
+#SBATCH --export=ALL
+
 module load singularity/4.1.0-slurm 
 
 #Load conda env
