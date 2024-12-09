@@ -19,6 +19,7 @@ default-resources:
   - mem_mb=80000
   - partition=work
 # Job resources
-#set-resources:
-  #- haplotypeCaller:mem_mb=40000
+set-resources:
+  - map_short_reads_giraffe:runtime=1440
+  - realign_bam:runtime=1440
  
