@@ -1,3 +1,5 @@
+##Run this script to prepare necessary input index files for the vg_snakemake workflow.
+
 #!/bin/bash -l 
 #SBATCH --job-name=index_pangenome
 #SBATCH --account=pawsey0933
