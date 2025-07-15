@@ -14,6 +14,13 @@ This is to generate a plot of the number of variants of a certain variant qualit
 - Use the individual deepvariant VCFs i.e. `D09-468.hprc-v1.1-mc-chm13.surj_realn.snv_indels.vcf.gz`
 - Use the cohort deepvariant callsets i.e. `hprc-v1.1-mc-chm13_dv_glnexus_VEP.ann.vcf.gz`
 
+*Results*
+
+- Use multiqc to generate a report of the bcftools stats, and download the `bcftools_stats_vqc.tsv` data.
+- Use the R script: `parse_quality_scores.R` to convert the data into a format that is easier to plot.
+- Plot data to represent quality scores on x-axis and number of variants on y-axis.
+- Normalise data by dividing by the total number of variants in each dataset.
+
 **Coding regions**
 
 To view variant quality scores for the exome, subset the cohort VCF file to include only exons using a genome annotation file:
