@@ -97,8 +97,49 @@ create_quality_dataframe <- function(data_lines) {
 }
 
 
+
+
 # Create the DataFrame
 data_lines <- readLines("./bcftools_stats_vqc (3).tsv")
 df <- create_quality_dataframe(data_lines)
+df_t <- as.data.frame(t(df)) %>%
+  mutate(
+    sample_id = sub("\\..*", "", rownames(df_t)),
+    genome = if_else(stringr::str_detect(rownames(df_t), "deepvariant"), "chm13", "grch38")) %>%
+  select(sample_id, genome, everything())
 
-write.table(df, file = "quality_scores.tsv", sep="\t")
+rownames(df_t) <- NULL
+df_t[df_t == 0] <- NA
+
+#calculate averages and arrange in format for plotting
+summary_df <- df_t %>%
+  group_by(genome) %>%
+  summarise(across(where(is.numeric), mean, na.rm = TRUE))
+
+plot_df <- summary_df %>%
+  pivot_longer(
+    cols = -genome,
+    names_to = "variable",
+    values_to = "mean_value"
+  )
+plot_df <- plot_df %>%
+  mutate(variable = as.numeric(as.character(variable))) # Convert to numeric
+
+
+#plot
+ggplot(plot_df, aes(x = variable, y = mean_value, group = genome, color = genome)) +
+  geom_line(size = 1) +
+  labs(
+    title = "Variant quality score distribution",
+    x = "Quality score",
+    y = "Average number of variants",
+    color = "Genome"
+  ) +
+  scale_x_continuous(
+    breaks = seq(min(plot_df$variable, na.rm = TRUE),
+                 max(plot_df$variable, na.rm = TRUE),
+                 by = 5) # Show every 1 quality score step
+  ) +
+  scale_y_continuous(limits = c(0, 17000)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  theme_minimal()
