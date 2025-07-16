@@ -1,4 +1,4 @@
-Annotate HPRCv1.1-aligned variants using VEP as part of nf-core/sarek
+## **Annotate HPRCv1.1-aligned variants using VEP as part of nf-core/sarek**
 
 1) Setup VEP for both chm13 and grch38 data
 - Download cache for grch38 data, available [here](https://ftp.ensembl.org/pub/release-114/variation/indexed_vep_cache/homo_sapiens_vep_114_GRCh38.tar.gz)
