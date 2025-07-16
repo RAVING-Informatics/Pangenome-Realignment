@@ -12,7 +12,7 @@ This is to generate a plot of the number of variants of a certain variant qualit
 *Inputs*
 
 - Use the individual deepvariant VCFs i.e. `D09-468.hprc-v1.1-mc-chm13.surj_realn.snv_indels.vcf.gz`
-- Use the cohort deepvariant callsets i.e. `hprc-v1.1-mc-chm13_dv_glnexus_VEP.ann.vcf.gz`
+- Use the cohort deepvariant callsets for comparison with coding variants / clinvar variants (see below) i.e. `hprc-v1.1-mc-chm13_dv_glnexus_VEP.ann.vcf.gz`
 
 *Results*
 
@@ -44,7 +44,7 @@ tabix -p vcf hprc-v1.1-mc-chm13_dv_glnexus_VEP.gff.exons.vcf.gz
 
 **Clinvar Variants**
 
-To view variant5 quality scores for clinvar variants, intersect the cohort VCF file with clinvar variants:
+To view variant quality scores for clinvar variants, intersect the cohort VCF file with clinvar variants:
 
 - T2T-CHM13:
 ```
@@ -65,6 +65,7 @@ bcftools view -H common_clinvar_20220313.vcf.gz | wc -l
 bcftools view -H chm13v2.0_ClinVar20220313.vcf.gz | wc -l
 1113862
 ```
+Intersect the clinvar variants with the variant callsets using `intersect_clinvar.sh`
 
 **Mendelian Violations**
 
