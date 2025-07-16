@@ -42,6 +42,30 @@ bcftools view -R protein_coding_chm13.bed -Oz -o hprc-v1.1-mc-chm13_dv_glnexus_V
 tabix -p vcf hprc-v1.1-mc-chm13_dv_glnexus_VEP.gff.exons.vcf.gz
 ```
 
+**Clinvar Variants**
+
+To view variant5 quality scores for clinvar variants, intersect the cohort VCF file with clinvar variants:
+
+- T2T-CHM13:
+```
+wget https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/annotation/liftover/chm13v2.0_ClinVar20220313.vcf.gz
+```
+- GRCh38:
+```
+wget https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/weekly/clinvar_20220313.vcf.gz
+```
+Modify the GRCh38 Clinvar VCF to include only variants that could be lifted over to T2T-CHM13:
+```
+bcftools query -f '%ID\n' chm13v2.0_ClinVar20220313.vcf.gz | sort | uniq > chm13v2.0_ClinVar.ids
+bcftools query -f '%ID\n' clinvar_20220313.vcf.gz | sort | uniq > grch38_ClinVar.ids
+comm -12 grch38_ClinVar.ids chm13v2.0_ClinVar > common.ids
+bcftools view -i 'ID=@common.ids' clinvar_20220313.vcf.gz -Oz -o common_clinvar_20220313.vcf.gz
+bcftools view -H common_clinvar_20220313.vcf.gz | wc -l
+>1113862
+bcftools view -H chm13v2.0_ClinVar20220313.vcf.gz | wc -l
+1113862
+```
+
 **Mendelian Violations**
 
 Calculate mendelian-violation rate using GATK `VariantEval MendelianViolationEvaluator`
