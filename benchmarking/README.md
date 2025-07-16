@@ -17,7 +17,7 @@ This is to generate a plot of the number of variants of a certain variant qualit
 *Results*
 
 - Use multiqc to generate a report of the bcftools stats, and download the `bcftools_stats_vqc.tsv` data.
-- Use the R script: `parse_quality_scores.R` to convert the data into a format that is easier to plot.
+- Use the R script: `parse_quality_scores.R` to convert the data into a format that is easier to plot and plot the data.
 - Plot data to represent quality scores on x-axis and number of variants on y-axis.
 - Normalise data by dividing by the total number of variants in each dataset.
 
