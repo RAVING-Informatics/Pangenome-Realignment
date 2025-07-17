@@ -13,4 +13,6 @@
 Run `merge_dv_dysgu.sh` which uses `bcftools concat` to concatenate the `deepvariant` and `dysgu` callsets, then sorts the merged vcf and removes any variants without VEP annotations using `bcftools view`
 
 ## Annotate with Genmod
-Annotate the mergeed callset using Genmod with `genmod.sh`
+To run genmod on Setonix, first split the cohort VCF file by chromosome using script `split_vcf.sh`. Running genmod on the entire VCF file will result in an OOM error. 
+
+Annotate the chr VCF files using Genmod with `genmod.sh`
