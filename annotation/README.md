@@ -13,6 +13,33 @@
 Run `merge_dv_dysgu.sh` which uses `bcftools concat` to concatenate the `deepvariant` and `dysgu` callsets, then sorts the merged vcf and removes any variants without VEP annotations using `bcftools view`
 
 ## Annotate with Genmod
-To run genmod on Setonix, first split the cohort VCF file by chromosome using script `split_vcf.sh`. Running genmod on the entire VCF file will result in an OOM error. 
+To run genmod on Setonix, first split the cohort VCF file by chromosome using the following:
 
-Annotate the chr VCF files using Genmod with `genmod.sh`
+```
+module load bcftools/1.15
+cd /scratch/pawsey0933/cfolland/pangenome/vcfs
+PREFIX=hprc-v1.1-mc-${GENOME}
+
+# get chroms:
+bcftools query -f '%CHROM\n' ${PREFIX}_dv_dysgu_VEP_sorted_noCSQ.vcf.gz | sort | uniq > ${PREFIX}_chroms.txt
+
+# split by chroms (autosome and sex):
+for chr in {1..22} X Y; do bcftools view -Oz -o ${PREFIX}_dv_dysgu_VEP_sorted_noCSQ_${chr}.vcf.gz ${PREFIX}_dv_dysgu_VEP_sorted_noCSQ.vcf.gz chr$chr; done
+```
+
+Running genmod on the entire VCF file will result in an OOM error. 
+
+Annotate the chr VCF files using Genmod with `genmod.sh`:
+
+```
+for chr in {1..22} X Y ; do sbatch --export=chr=$chr genmod.sh; done
+```
+
+Once complete, compress and index the files:
+```
+for file in *genmod_*.vcf; do bgzip $file; tabix -p ${file}.gz; done
+```
+
+Finally, merge the individual files back to one using `concat-genmod.sh`
+
+
