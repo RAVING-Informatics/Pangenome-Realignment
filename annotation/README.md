@@ -42,4 +42,10 @@ for file in *genmod_*.vcf; do bgzip $file; tabix -p ${file}.gz; done
 
 Finally, merge the individual files back to one using `concat-genmod.sh`
 
+## Annotate VCF file with AF from control cohorts
+- 3202 srGS samples from 1000 Genomes Phase 3 recalled on T2T-CHM13
+- The Human Pangenome Reference Consortium (HPRC) T2T-CHM13 callset, including 44 high quality diploid human assemblies, as described in Liao et al. 2023.
+- The combined HPRC and HGSVC3 T2T-CHM13 callset, including 42 HPRC assemblies + 65 HGVCS3, as described in Logsdon et al. 2024
+- 76,156 srGS aligned to GRCh38 from gnomAD v3.1.2 and lifted over to T2T-CHM13
+
 
