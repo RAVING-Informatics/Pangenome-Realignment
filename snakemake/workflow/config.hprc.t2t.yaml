@@ -1,0 +1,85 @@
+graph: 'hprc-v1.1-mc-chm13'
+gbz: "/scratch/pawsey0933/cfolland/vg_snakemake/refs/hprc-v1.1/chm13/hprc-v1.1-mc-chm13.gbz"
+hapl: "/scratch/pawsey0933/cfolland/vg_snakemake/refs/hprc-v1.1/chm13/hprc-v1.1-mc-chm13.hapl"
+ref_paths_list: '/scratch/pawsey0933/cfolland/vg_snakemake/config/hprc-v1.1-mc-chm13.paths_list.txt'
+seqn_prefix: "CHM13#0#"
+gt_min_var_len: 30
+indel_realign_reads: True
+sample_tsv: "/scratch/pawsey0933/cfolland/vg_snakemake/config/sample_info.tsv"
+model: "/software/projects/pawsey0933/pangenome/deepvariant/model.ckpt"
+surjected_bams:
+    D09-468: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D09-468.hprc-v1.1-mc-chm13.surj_realn.bam
+    D12-880: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D12-880.hprc-v1.1-mc-chm13.surj_realn.bam
+    D12-881: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D12-881.hprc-v1.1-mc-chm13.surj_realn.bam
+    D12-928: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D12-928.hprc-v1.1-mc-chm13.surj_realn.bam
+    D13-708: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D13-708.hprc-v1.1-mc-chm13.surj_realn.bam
+    D13-944: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D13-944.hprc-v1.1-mc-chm13.surj_realn.bam
+    D14-0589: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D14-0589.hprc-v1.1-mc-chm13.surj_realn.bam
+    D15-0055: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D15-0055.hprc-v1.1-mc-chm13.surj_realn.bam
+    D15-1048: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D15-1048.hprc-v1.1-mc-chm13.surj_realn.bam
+    D15-1050: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D15-1050.hprc-v1.1-mc-chm13.surj_realn.bam
+    D15-1762: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D15-1762.hprc-v1.1-mc-chm13.surj_realn.bam
+    D15-1768: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D15-1768.hprc-v1.1-mc-chm13.surj_realn.bam
+    D16-0208: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D16-0208.hprc-v1.1-mc-chm13.surj_realn.bam
+    D16-0298: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D16-0298.hprc-v1.1-mc-chm13.surj_realn.bam
+    D17-0918: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D17-0918.hprc-v1.1-mc-chm13.surj_realn.bam
+    D18-0051: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D18-0051.hprc-v1.1-mc-chm13.surj_realn.bam
+    D18-0870: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D18-0870.hprc-v1.1-mc-chm13.surj_realn.bam
+    D18-1122: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D18-1122.hprc-v1.1-mc-chm13.surj_realn.bam
+    D18-1921: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D18-1921.hprc-v1.1-mc-chm13.surj_realn.bam
+    D19-0714: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D19-0714.hprc-v1.1-mc-chm13.surj_realn.bam
+    D19-0823: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D19-0823.hprc-v1.1-mc-chm13.surj_realn.bam
+    D19-0824: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D19-0824.hprc-v1.1-mc-chm13.surj_realn.bam
+    D19-0825: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D19-0825.hprc-v1.1-mc-chm13.surj_realn.bam
+    D19-1647: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D19-1647.hprc-v1.1-mc-chm13.surj_realn.bam
+    D19-1648: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D19-1648.hprc-v1.1-mc-chm13.surj_realn.bam
+    D19-1649: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D19-1649.hprc-v1.1-mc-chm13.surj_realn.bam
+    D20-0414: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D20-0414.hprc-v1.1-mc-chm13.surj_realn.bam
+    D20-0418: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D20-0418.hprc-v1.1-mc-chm13.surj_realn.bam
+    D20-0819: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D20-0819.hprc-v1.1-mc-chm13.surj_realn.bam
+    D20-1019: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D20-1019.hprc-v1.1-mc-chm13.surj_realn.bam
+    D20-1040: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D20-1040.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0013: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0013.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0023: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0023.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0024: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0024.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0068: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0068.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0069: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0069.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0074: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0074.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0075: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0075.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0076: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0076.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0077: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0077.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0078: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0078.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0079: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0079.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0083: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0083.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0084: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0084.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0085: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0085.hprc-v1.1-mc-chm13.surj_realn.bam
+    D21-0091: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D21-0091.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0006: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0006.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0007: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0007.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0008: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0008.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0015: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0015.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0017: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0017.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0018: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0018.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0049: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0049.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0050: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0050.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0056: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0056.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0060: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0060.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0074: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0074.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0075: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0075.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0080: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0080.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0081: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0081.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0082: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0082.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0088: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0088.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0089: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0089.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0109: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0109.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0110: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0110.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0119: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0119.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0159: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0159.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0161: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0161.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0162: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0162.hprc-v1.1-mc-chm13.surj_realn.bam
+    D22-0170: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D22-0170.hprc-v1.1-mc-chm13.surj_realn.bam
+    D23-0058: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D23-0058.hprc-v1.1-mc-chm13.surj_realn.bam
+    D23-0059: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D23-0059.hprc-v1.1-mc-chm13.surj_realn.bam
+    D23-0060: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D23-0060.hprc-v1.1-mc-chm13.surj_realn.bam
+    D23-0074: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D23-0074.hprc-v1.1-mc-chm13.surj_realn.bam
+    DGS-20-210: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/DGS-20-210.hprc-v1.1-mc-chm13.surj_realn.bam
