@@ -69,8 +69,8 @@ rule dv_make_examples:
     input:
         ref=getref(),
         ref_idx=getrefidx(),
-        bam="results/{sample}/{sample}.{graph}.{surj}.bam",
-        bai="results/{sample}/{sample}.{graph}.{surj}.bam.bai"
+        bam=get_surjected_bam,
+        bai=get_surjected_bai
     output: temp("results/{sample}/{sample}.{graph}.{surj}.make_examples.tfrecord.tar.gz")
     params:
         label="{sample}.{graph}.{surj}",
@@ -107,7 +107,9 @@ if config['use_gpu']:
             ref=getref(),
             ref_idx=getrefidx(),
             ex="results/{sample}/{sample}.{graph}.{surj}.make_examples.tfrecord.tar.gz",
-            model=getmodel()
+            model_data=config["model"] + ".data-00000-of-00001",
+            model_index=config["model"] + ".index",
+            model_meta=config["model"] + ".meta"
         output:
             vcf=tempCond("results/{sample}/{sample}.{graph}.{surj}.snv_indels.vcf.gz"),
             tbi=tempCond("results/{sample}/{sample}.{graph}.{surj}.snv_indels.vcf.gz.tbi"),
@@ -129,7 +131,7 @@ if config['use_gpu']:
             /opt/deepvariant/bin/call_variants \
             --outfile {params.call_tf} \
             --examples "{params.dvdir}/make_examples.{params.label}.tfrecord@{threads}.gz" \
-            --checkpoint {input.model} 2> {log}
+            --checkpoint "{config[model]}" 2> {log}
 
             /opt/deepvariant/bin/postprocess_variants \
             --ref {input.ref} \
@@ -146,7 +148,9 @@ else:
             ref=getref(),
             ref_idx=getrefidx(),
             ex="results/{sample}/{sample}.{graph}.{surj}.make_examples.tfrecord.tar.gz",
-            model=get_model()
+            model_data=config["model"] + ".data-00000-of-00001",
+            model_index=config["model"] + ".index",
+            model_meta=config["model"] + ".meta"
         output:
             vcf=tempCond("results/{sample}/{sample}.{graph}.{surj}.snv_indels.vcf.gz"),
             tbi=tempCond("results/{sample}/{sample}.{graph}.{surj}.snv_indels.vcf.gz.tbi"),
@@ -168,7 +172,7 @@ else:
             /opt/deepvariant/bin/call_variants \
             --outfile {params.call_tf} \
             --examples "{params.dvdir}/make_examples.{params.label}.tfrecord@{threads}.gz" \
-            --checkpoint {input.model} 2> {log}
+            --checkpoint "{config[model]}" 2> {log}
 
             /opt/deepvariant/bin/postprocess_variants \
             --ref {input.ref} \
@@ -184,8 +188,8 @@ rule sv_call_manta:
     input: 
         ref=getref(),
         ref_idx=getrefidx(),
-        bam="results/{sample}/{sample}.{graph}.{surj}.bam",
-        bai="results/{sample}/{sample}.{graph}.{surj}.bam.bai"
+        bam=get_surjected_bam,
+        bai=get_surjected_bai
     output:
         calls=tempCond("results/{sample}/{sample}.{graph}.{surj}.sv_manta.vcf.gz"),
         cand=tempCond("results/{sample}/{sample}.{graph}.{surj}.sv_manta_candidates.vcf.gz")
@@ -208,8 +212,8 @@ rule sv_call_manta:
 
 rule coverage_mosdepth:
     input:
-        bam="results/{sample}/{sample}.{graph}.{surj}.bam",
-        bai="results/{sample}/{sample}.{graph}.{surj}.bam.bai"
+        bam=get_surjected_bam,
+        bai=get_surjected_bai
     output:
         qbed=tempCond("results/{sample}/{sample}.{graph}.{surj}.coverage.q.bed.gz"),
         bed=tempCond("results/{sample}/{sample}.{graph}.{surj}.coverage.bed.gz")
