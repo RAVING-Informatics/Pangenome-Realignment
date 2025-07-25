@@ -6,7 +6,7 @@ seqn_prefix: "CHM13#0#"
 gt_min_var_len: 30
 indel_realign_reads: True
 sample_tsv: "/scratch/pawsey0933/cfolland/vg_snakemake/config/sample_info.tsv"
-model: "/software/projects/pawsey0933/pangenome/deepvariant/model.ckpt"
+model: "/scratch/pawsey0933/cfolland/vg_snakemake/refs/model/model.ckpt-364300"
 surjected_bams:
     D09-468: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D09-468.hprc-v1.1-mc-chm13.surj_realn.bam
     D12-880: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D12-880.hprc-v1.1-mc-chm13.surj_realn.bam
