@@ -5,7 +5,6 @@ ref_paths_list: '/scratch/pawsey0933/cfolland/vg_snakemake/config/hprc-v1.1-mc-c
 seqn_prefix: "CHM13#0#"
 gt_min_var_len: 30
 indel_realign_reads: True
-sample_tsv: "/scratch/pawsey0933/cfolland/vg_snakemake/config/sample_info.tsv"
 model: "/scratch/pawsey0933/cfolland/vg_snakemake/refs/model/model.ckpt-364300"
 surjected_bams:
     D09-468: /scratch/pawsey0933/cfolland/pangenome/deepvariant/input/D09-468.hprc-v1.1-mc-chm13.surj_realn.bam
