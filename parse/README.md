@@ -3,7 +3,10 @@
 ## 1) Subset cohort VCF into individual family VCFs
 Use script `families.sh` to generate family-specific VCF files with AD and AR filters.
 
-## 2) Generate tsv/csv files of family VCFs for easy analysing
+## 2) Subset family VCF into VCF containing variants only in affecteds
+Use script `affected.sh` to generate a VCF with variants that are either heterozygous (1/0, 0/1) or homozygous alt (1/1) in affected individuals. Unaffected individuals can have any genotype.
+
+## 3) Generate tsv/csv files of family VCFs for easy analysing
 Use script `process_vcfs.sh` which runs the python parsing script `parse_line.py` on each VCF in each family.
 Ensure the VCFs are nested in a directory structure where each family has their own subdirectory. 
 This should already be the case if you have run `families.sh` first. 
