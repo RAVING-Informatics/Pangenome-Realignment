@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-#SBATCH --job-name=run_vg
+#SBATCH --job-name=run_vg_v1.1
 #SBATCH --account=pawsey0933
 #SBATCH --partition=work
 #SBATCH --ntasks=1
@@ -30,4 +30,4 @@ cd /scratch/pawsey0933/cfolland/vg_snakemake/
 snakemake -s ./workflow/Snakefile --cores 1 --unlock
 
 #Run snakemake
-snakemake -s ./workflow/Snakefile --configfile ./config/config.hprc.yaml --slurm --profile slurm_vg --use-singularity -p all
+snakemake -s ./workflow/Snakefile --configfile ./config/config.hprcv1.1.yaml --slurm --profile slurm_vg --use-singularity -p all
