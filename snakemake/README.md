@@ -50,4 +50,4 @@ docker_imgs['gatk_bedtools'] = "docker://docker.io/chiarafolland/custom-gatk-bed
 ```
 5. Edit the configuration files `config.hprc1.1.yaml` and `sample_info_batch1.tsv`
 6. Create a snakemake slurm configuration in `$HOME` dir `/home/cfolland/.config/snakemake/`: `slurm_hprcv1-1_config.yaml`
-7. Execute `run_vg_v1.1.sh
+7. Execute `run_vg_v1.1.sh`
