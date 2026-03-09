@@ -1,0 +1,35 @@
+#!/bin/bash -l
+
+#SBATCH --job-name=run_vg
+#SBATCH --account=pawsey0933
+#SBATCH --partition=work
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=32G
+#SBATCH --nodes=1
+#SBATCH --time=24:00:00
+#SBATCH --mail-user=chiara.folland@perkins.org.au
+#SBATCH --mail-type=END
+#SBATCH --error=%j.%x.err
+#SBATCH --output=%j.%x.out
+#SBATCH --export=ALL
+
+module load singularity/4.1.0-slurm 
+
+#Load conda env
+source /software/projects/pawsey0933/cfolland/miniforge3/etc/profile.d/conda.sh
+conda activate /software/projects/pawsey0933/cfolland/miniforge3/envs/snakemake_7.32.4
+
+#Change cache dir
+export XDG_CACHE_HOME=/scratch/pawsey0933/cfolland/vg_snakemake/.cache
+export SINGULARITY_CACHEDIR=/scratch/pawsey0933/cfolland/.singularity
+
+#Change to working dir
+cd /scratch/pawsey0933/cfolland/vg_snakemake/
+
+#Unlock working directory
+snakemake -s ./workflow/Snakefile --cores 1 --unlock
+
+#Run snakemake
+snakemake -s ./workflow/Snakefile --configfile ./config/config.hprc2.0.yaml --profile slurm_vg_v7 --use-singularity -p all --rerun-incomplete
+
