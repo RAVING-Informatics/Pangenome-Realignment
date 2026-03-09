@@ -48,6 +48,6 @@ wget https://human-pangenomics.s3.amazonaws.com/pangenomes/freeze/release2/minig
 ```
 docker_imgs['gatk_bedtools'] = "docker://docker.io/chiarafolland/custom-gatk-bedtools-glibc@sha256:dd506b1ca208525d0480cf712b4a89c7e4094f87a13951becf222d153c24d55f"
 ```
-5. Edit the configuration files `config.hprc1.1.yaml` and `sample_info_batch1.tsv`
-6. Create a snakemake slurm configuration in `$HOME` dir `/home/cfolland/.config/snakemake/`: `slurm_hprcv1-1_config.yaml`
-7. Execute `run_vg_v1.1.sh`
+5. Edit the configuration files `config.hprc2.0.yaml` and `samplesheet_batch_garvan_1.tsv`
+6. Create a snakemake slurm configuration in `$HOME` dir `/home/cfolland/.config/snakemake/`: `config_slurm_vg_v7.yaml`
+7. Execute `run_vg_v2.0.sh`
